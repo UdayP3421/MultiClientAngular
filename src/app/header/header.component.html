@@ -1,0 +1,30 @@
+<!--..............................Navigation bar.................................................-->
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+   
+    <b class="logo-title">Multi Service</b>
+
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-end">
+        <div class="navbar-nav ml-auto">
+            <div ngbDropdown class="nav-item dropdown">
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle user-action" ngbDropdownToggle>
+                    <img src="..\assets\profile.png" class="rounded-circle" width="40" height="40"
+                        style="margin-right:10px;"></a>
+                <div ngbDropdownMenu class="dropdown-menu">
+                    <a class="dropdown-item" ngbDropdownItem (click)="profileRedirect()"><i class="fa fa-user-o"></i>
+                        Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" ngbDropdownItem (click)="logout()"><i class="fa fa-sign-out"></i>
+                        Logout</a>
+                </div>
+            </div>
+        </div>    &nbsp; &nbsp;
+        
+        <div class="navbar-nav">
+            <a routerLink="/products/service" class="nav-item nav-link">
+                <i class="fa fa-product-hunt"></i> &nbsp;Products</a>
+            <a routerLink="/cart" class="nav-item nav-link">
+                <i class="fa fa-shopping-cart"></i> &nbsp;Cart</a>
+        </div>
+    </div>
+</nav>

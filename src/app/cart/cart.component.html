@@ -1,0 +1,77 @@
+<main class="page">
+  <section class="shopping-cart dark">
+    <div class="container">
+      <div class="block-heading">
+        <h2>Shopping Cart</h2>
+        
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="items">
+             
+              <!------------------For Services ----------------->
+              <div *ngFor="let serviceItem of serviceItems" class="product">
+                <div class="row">
+                  <div class="col-md-3">
+                    <!-- <img class="img-fluid mx-auto d-block image" src="{{plantItem.plantImageUrl}}" /> -->
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info">
+                      <div class="row">
+                        <div class="col-md-5 product-name">
+                          <div class="product-name">
+                            <h6>{{serviceItem.serviceName}}</h6>
+                            <div class="product-info">
+                              <div>
+                               
+                              </div>
+                             
+                              <div>Type of Service: <span class="value">{{serviceItem.serviceType}}</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 quantity">
+                          <label for="quantity">Quantity:</label>
+                          <input id="quantity" type="number" class="form-control quantity-input"
+                          (ngModelChange)="updateServiceSum($event)" [(ngModel)]="serviceItemQuantity" />
+                          <p></p>
+                        </div>
+                        <div class="col-md-3 price">
+                          <span>{{serviceItem.servicePrice * serviceItemQuantity}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+                       
+                      </div>
+                    </div>
+                
+          <div class="col-md-12 col-lg-4">
+            <div class="summary">
+              <h4><i class="fa fa-shopping-cart"></i> &nbsp; Order Summary</h4>  <hr>
+              <div class="summary-item">
+                <span class="text">Service Price</span><span class="price"><i class="fa fa-inr" aria-hidden="true"></i>
+                  {{totalPrice}}</span>
+              </div>
+              
+              <div class="summary-item">
+                <span class="text">Total</span><span class="price"><i class="fa fa-inr" aria-hidden="true"></i>
+                  {{totalPrice}}</span>
+              </div>
+              <a routerLink="/order">
+                <button *ngIf="totalPrice !=0" type="button" class="btn btn-success"
+                  (click)="onClickCheckout()">
+                  <i class="fa fa-credit-card" style="font-size:24px"></i> &nbsp; Proceed to Checkout 
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
